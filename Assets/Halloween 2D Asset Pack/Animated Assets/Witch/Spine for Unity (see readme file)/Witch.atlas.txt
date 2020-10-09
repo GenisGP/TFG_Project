@@ -1,0 +1,90 @@
+
+Witch.png
+size: 1923,488
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+broom
+  rotate: false
+  xy: 713, 252
+  size: 902, 234
+  orig: 902, 234
+  offset: 0, 0
+  index: -1
+far scarf
+  rotate: false
+  xy: 902, 122
+  size: 501, 128
+  orig: 501, 128
+  offset: 0, 0
+  index: -1
+hat
+  rotate: true
+  xy: 1617, 90
+  size: 396, 184
+  orig: 396, 184
+  offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 713, 96
+  size: 187, 154
+  orig: 189, 156
+  offset: 1, 1
+  index: -1
+left boot
+  rotate: true
+  xy: 1803, 68
+  size: 146, 117
+  orig: 146, 117
+  offset: 0, 0
+  index: -1
+left hand
+  rotate: false
+  xy: 1591, 7
+  size: 275, 59
+  orig: 275, 59
+  offset: 0, 0
+  index: -1
+left leg
+  rotate: true
+  xy: 713, 41
+  size: 53, 123
+  orig: 55, 125
+  offset: 1, 1
+  index: -1
+right  leg
+  rotate: true
+  xy: 1405, 138
+  size: 112, 132
+  orig: 117, 134
+  offset: 4, 1
+  index: -1
+right boot
+  rotate: false
+  xy: 1449, 32
+  size: 140, 104
+  orig: 140, 104
+  offset: 0, 0
+  index: -1
+right hand
+  rotate: true
+  xy: 1803, 216
+  size: 270, 118
+  orig: 270, 118
+  offset: 0, 0
+  index: -1
+scarf
+  rotate: false
+  xy: 902, 2
+  size: 545, 118
+  orig: 545, 118
+  offset: 0, 0
+  index: -1
+witch body
+  rotate: false
+  xy: 2, 46
+  size: 709, 440
+  orig: 813, 689
+  offset: 14, 74
+  index: -1

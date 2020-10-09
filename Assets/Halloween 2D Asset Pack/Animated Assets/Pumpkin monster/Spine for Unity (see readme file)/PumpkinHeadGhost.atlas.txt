@@ -1,0 +1,41 @@
+
+PumpkinHeadGhost.png
+size: 1705,503
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body tranalucent
+  rotate: true
+  xy: 2, 2
+  size: 499, 736
+  orig: 499, 770
+  offset: 0, 0
+  index: -1
+hand  left
+  rotate: false
+  xy: 1029, 71
+  size: 278, 430
+  orig: 278, 430
+  offset: 0, 0
+  index: -1
+hand right
+  rotate: false
+  xy: 740, 56
+  size: 287, 445
+  orig: 368, 523
+  offset: 0, 78
+  index: -1
+head
+  rotate: false
+  xy: 1309, 10
+  size: 322, 269
+  orig: 324, 271
+  offset: 1, 1
+  index: -1
+neck
+  rotate: false
+  xy: 1309, 281
+  size: 394, 220
+  orig: 394, 220
+  offset: 0, 0
+  index: -1

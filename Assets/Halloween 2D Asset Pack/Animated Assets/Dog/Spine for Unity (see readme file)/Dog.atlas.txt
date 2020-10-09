@@ -1,0 +1,90 @@
+
+Dog.png
+size: 1878,1471
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body
+  rotate: false
+  xy: 2, 1028
+  size: 1066, 441
+  orig: 1949, 826
+  offset: 200, 385
+  index: -1
+collar
+  rotate: false
+  xy: 665, 71
+  size: 193, 341
+  orig: 286, 358
+  offset: 43, 2
+  index: -1
+ear 1
+  rotate: true
+  xy: 860, 15
+  size: 214, 245
+  orig: 289, 259
+  offset: 75, 14
+  index: -1
+ear 2
+  rotate: true
+  xy: 1202, 242
+  size: 170, 146
+  orig: 198, 146
+  offset: 0, 0
+  index: -1
+head_1
+  rotate: true
+  xy: 1630, 1103
+  size: 366, 245
+  orig: 452, 406
+  offset: 0, 21
+  index: -1
+head_2
+  rotate: false
+  xy: 860, 231
+  size: 340, 181
+  orig: 451, 406
+  offset: 0, 0
+  index: -1
+head_3
+  rotate: false
+  xy: 1630, 1024
+  size: 180, 77
+  orig: 180, 77
+  offset: 0, 0
+  index: -1
+leg 1
+  rotate: false
+  xy: 819, 414
+  size: 549, 548
+  orig: 549, 548
+  offset: 0, 0
+  index: -1
+leg 2
+  rotate: true
+  xy: 1370, 427
+  size: 535, 506
+  orig: 535, 506
+  offset: 0, 0
+  index: -1
+leg 3
+  rotate: true
+  xy: 2, 2
+  size: 442, 661
+  orig: 487, 661
+  offset: 45, 0
+  index: -1
+leg 4
+  rotate: true
+  xy: 1070, 964
+  size: 505, 558
+  orig: 1952, 846
+  offset: 599, 87
+  index: -1
+tale
+  rotate: false
+  xy: 2, 446
+  size: 815, 580
+  orig: 815, 580
+  offset: 0, 0
+  index: -1

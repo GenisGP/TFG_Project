@@ -1,0 +1,596 @@
+fileFormatVersion: 2
+guid: 198b31f51dd2268459f44d517b33b31e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8742465224741960733
+    second: cauldron_0000s_0000_Layer-13
+  - first:
+      213: 4446869389320106267
+    second: cauldron_0000s_0001_Layer-12
+  - first:
+      213: -8378281637742389899
+    second: cauldron_0000s_0002_Layer-11
+  - first:
+      213: 8034836253386205806
+    second: cauldron_0000s_0003_Layer-15
+  - first:
+      213: -1062492638971492887
+    second: cauldron_0000s_0004_Layer-14
+  - first:
+      213: 6673858491479525863
+    second: cauldron_0000s_0005_Layer-16
+  - first:
+      213: 7783170193743696525
+    second: potions_0000_Layer-8
+  - first:
+      213: 5259634858609254076
+    second: potions_0001_Layer-7
+  - first:
+      213: 3877789048972801315
+    second: potions_0002_Layer-6
+  - first:
+      213: -3703706319130071967
+    second: potions_0003_Layer-5
+  - first:
+      213: 1506752279639683021
+    second: potions_0004_Layer-4
+  - first:
+      213: 6522954237801383062
+    second: potions_0005_Layer-3
+  - first:
+      213: 1699967653338508891
+    second: potions_0006_Layer-2
+  - first:
+      213: -7414594024280665813
+    second: potions_0007_Layer-1
+  - first:
+      213: -9213883318700437619
+    second: potions_0008_Layer-10
+  - first:
+      213: 2601621857974879157
+    second: spellbook_0000s_0000_Layer-21
+  - first:
+      213: 4640014920557562498
+    second: spellbook_0000s_0001_Layer-20
+  - first:
+      213: -3788202422451359183
+    second: spellbook_0000s_0002_Layer-19
+  - first:
+      213: 5834229333978771450
+    second: spellbook_0000s_0003_Layer-18
+  - first:
+      213: -4038279602885173282
+    second: spellbook_0000s_0004_Layer-17
+  - first:
+      213: 4219784161284751131
+    second: spellbook_0000s_0005_7
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: cauldron_0000s_0000_Layer-13
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 1533
+        width: 411
+        height: 512
+      alignment: 9
+      pivot: {x: 0.49878347, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1c33f56dc9735970800000000000000
+      internalID: 8742465224741960733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cauldron_0000s_0001_Layer-12
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 497
+        width: 415
+        height: 512
+      alignment: 9
+      pivot: {x: 0.50120485, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b11bbf8262476bd30800000000000000
+      internalID: 4446869389320106267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cauldron_0000s_0002_Layer-11
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 1015
+        width: 415
+        height: 512
+      alignment: 9
+      pivot: {x: 0.49879518, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 575df229d3d5abb80800000000000000
+      internalID: -8378281637742389899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cauldron_0000s_0003_Layer-15
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 122
+        width: 408
+        height: 369
+      alignment: 9
+      pivot: {x: 0.5, y: 0.69376695}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6ae3878009718f60800000000000000
+      internalID: 8034836253386205806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cauldron_0000s_0004_Layer-14
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 117
+        width: 410
+        height: 374
+      alignment: 9
+      pivot: {x: 0.5, y: 0.684492}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e503adf2944141f0800000000000000
+      internalID: -1062492638971492887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cauldron_0000s_0005_Layer-16
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 118
+        width: 409
+        height: 373
+      alignment: 9
+      pivot: {x: 0.4987775, y: 0.6863271}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e98cd930fe4e9c50800000000000000
+      internalID: 6673858491479525863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potions_0000_Layer-8
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 1015
+        width: 495
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4949495, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d825080ed00630c60800000000000000
+      internalID: 7783170193743696525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potions_0001_Layer-7
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 497
+        width: 334
+        height: 512
+      alignment: 9
+      pivot: {x: 0.48802397, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbe9aa3890afdf840800000000000000
+      internalID: 5259634858609254076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potions_0002_Layer-6
+      rect:
+        serializedVersion: 2
+        x: 1598
+        y: 1533
+        width: 327
+        height: 512
+      alignment: 9
+      pivot: {x: 0.49847096, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3257ce9389ca0d530800000000000000
+      internalID: 3877789048972801315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potions_0003_Layer-5
+      rect:
+        serializedVersion: 2
+        x: 925
+        y: 1015
+        width: 334
+        height: 512
+      alignment: 9
+      pivot: {x: 0.48502994, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16ce1efc9bac99cc0800000000000000
+      internalID: -3703706319130071967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potions_0004_Layer-4
+      rect:
+        serializedVersion: 2
+        x: 1264
+        y: 1533
+        width: 328
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4847561, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcfee68173f09e410800000000000000
+      internalID: 1506752279639683021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potions_0005_Layer-3
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 1533
+        width: 335
+        height: 512
+      alignment: 9
+      pivot: {x: 0.48955223, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 694c746b150368a50800000000000000
+      internalID: 6522954237801383062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potions_0006_Layer-2
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 497
+        width: 324
+        height: 512
+      alignment: 9
+      pivot: {x: 0.50308645, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5e65eae29f779710800000000000000
+      internalID: 1699967653338508891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potions_0007_Layer-1
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 497
+        width: 492
+        height: 512
+      alignment: 9
+      pivot: {x: 0.49796748, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b215405e4021a1990800000000000000
+      internalID: -7414594024280665813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potions_0008_Layer-10
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 1533
+        width: 497
+        height: 512
+      alignment: 9
+      pivot: {x: 0.49899396, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8f86fa50f5b12080800000000000000
+      internalID: -9213883318700437619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spellbook_0000s_0000_Layer-21
+      rect:
+        serializedVersion: 2
+        x: 1592
+        y: 730
+        width: 296
+        height: 264
+      alignment: 9
+      pivot: {x: 0.5101351, y: 0.5113636}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b30c7cbb41da1420800000000000000
+      internalID: 2601621857974879157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spellbook_0000s_0001_Layer-20
+      rect:
+        serializedVersion: 2
+        x: 1592
+        y: 1000
+        width: 299
+        height: 259
+      alignment: 9
+      pivot: {x: 0.5083612, y: 0.5019305}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28a88548cf4a46040800000000000000
+      internalID: 4640014920557562498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spellbook_0000s_0002_Layer-19
+      rect:
+        serializedVersion: 2
+        x: 1592
+        y: 1265
+        width: 304
+        height: 262
+      alignment: 9
+      pivot: {x: 0.49671054, y: 0.50763357}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1323380b7f99d6bc0800000000000000
+      internalID: -3788202422451359183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spellbook_0000s_0003_Layer-18
+      rect:
+        serializedVersion: 2
+        x: 1592
+        y: 458
+        width: 294
+        height: 266
+      alignment: 9
+      pivot: {x: 0.5102041, y: 0.5112782}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: affe7fd0ba857f050800000000000000
+      internalID: 5834229333978771450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spellbook_0000s_0004_Layer-17
+      rect:
+        serializedVersion: 2
+        x: 1265
+        y: 1265
+        width: 300
+        height: 262
+      alignment: 9
+      pivot: {x: 0.51666665, y: 0.50763357}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edfd25ec81625f7c0800000000000000
+      internalID: -4038279602885173282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spellbook_0000s_0005_7
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 220
+        width: 300
+        height: 271
+      alignment: 9
+      pivot: {x: 0.50666666, y: 0.51291513}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1f723a565faf8a30800000000000000
+      internalID: 4219784161284751131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

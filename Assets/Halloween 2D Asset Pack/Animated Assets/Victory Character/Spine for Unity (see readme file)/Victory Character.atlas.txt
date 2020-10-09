@@ -1,0 +1,41 @@
+
+Victory Character.png
+size: 1017,521
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body
+  rotate: true
+  xy: 2, 221
+  size: 298, 616
+  orig: 298, 616
+  offset: 0, 0
+  index: -1
+eyes
+  rotate: false
+  xy: 2, 46
+  size: 111, 21
+  orig: 115, 24
+  offset: 2, 1
+  index: -1
+hand
+  rotate: false
+  xy: 226, 54
+  size: 188, 165
+  orig: 188, 165
+  offset: 0, 0
+  index: -1
+hat
+  rotate: true
+  xy: 620, 2
+  size: 517, 395
+  orig: 517, 395
+  offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 2, 69
+  size: 222, 150
+  orig: 224, 152
+  offset: 1, 1
+  index: -1
