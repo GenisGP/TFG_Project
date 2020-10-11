@@ -8,27 +8,93 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     private float movement;
 
-    private Rigidbody2D rb;
+    private bool isGrounded;                //Si està en el suelo
+    private bool isJumping;                 //Si està saltando
+    private bool startJump;                 //Para detectar en Input del salto i aplicarlo en el FixedUpdate sin perderlo
+
+    [SerializeField]
+    private Transform groundCheck;
+
+    float originalXScale;					//Esacala original en el eje X
+    int direction = 1;						//Direccióm a la que mira el jugador (1 -> Derecha, -1-> Izquierda)
+
+    private Rigidbody2D rb2d;
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb= GetComponent<Rigidbody2D>();
+        rb2d= GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+
+        //Se almacena la escala x original del personaje
+        originalXScale = transform.localScale.x;
     }
 
     // Update is called once per frame
     void Update()
     {
         movement = Input.GetAxis("Horizontal");
-        transform.position += new Vector3(movement, 0) * Time.deltaTime * speed;
 
-        if (Input.GetButtonDown("Jump"))
+        //Se pasa el valor absoluto de la velocidad para pasar solo valores positivos
+        anim.SetFloat("speed", Mathf.Abs(movement));
+        anim.SetBool("isGrounded", isGrounded);
+        anim.SetBool("isJumping", isJumping);
+
+
+        //Si el signo del movimiento del Input y la dirección no coindicen, se da la vuelta al personaje
+        if (movement * direction < 0f)
+            FlipCharacterDirection();
+
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            startJump = true;
+            isJumping = true;
         }
     }
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(movement * speed, rb.velocity.y);        
+        //Si el linecast va en la trayectoria desde las posición del jugador a la del groundCheck y choca con la layer Ground
+        if(Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")))
+        {
+            isGrounded = true;
+            isJumping = false;
+            Debug.Log("Grounded");
+        }
+        else
+        {
+            isGrounded = false;
+            Debug.Log("No Grounded");
+        }
+
+        rb2d.velocity = new Vector2(movement * speed, rb2d.velocity.y);      
+
+        if (startJump)
+        {
+            rb2d.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            anim.Play("Jump");
+            startJump = false;
+            isJumping = true;
+        }
+    }
+
+    void GroundMovement()
+    {
+
+    }
+
+    void FlipCharacterDirection()
+    {
+        //Gira el personage dando la vuelta a la dirección
+        direction *= -1;
+
+        //Escala actual
+        Vector3 scale = transform.localScale;
+
+        //Establece la escala X para ser la original por la dirección
+        scale.x = originalXScale * direction;
+
+        //Aplica la nueva escala
+        transform.localScale = scale;
     }
 }
