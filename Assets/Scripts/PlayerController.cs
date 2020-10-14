@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,8 +9,8 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     private float movement;
 
-    private bool isGrounded;                //Si està en el suelo
-    private bool isJumping;                 //Si està saltando
+    private bool isGrounded;                //Si está en el suelo
+    private bool isJumping;                 //Si está saltando
     private bool startJump;                 //Para detectar en Input del salto i aplicarlo en el FixedUpdate sin perderlo
 
     [SerializeField]
@@ -34,6 +35,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //If the Game Manager says the game is over, exit
+        if (GameManager.IsGameOver())
+        {
+            return;
+        }
+            
         movement = Input.GetAxis("Horizontal");
 
         //Se pasa el valor absoluto de la velocidad para pasar solo valores positivos
