@@ -35,13 +35,16 @@ public class PlayerController : MonoBehaviour
 
         //Se almacena la escala x original del personaje
         originalXScale = transform.localScale.x;
+
+        //Cuando se inicia el nivel se quita la pausa (para no hacer el return en el Update)
+        GameManager.isGamePaused = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //If the Game Manager says the game is over, exit
-        if (GameManager.IsGameOver())
+        //Si el Game Manager dice que se acabó el juego o está en pausa, salir
+        if (GameManager.isGameOver || GameManager.isGamePaused)
         {
             return;
         }
@@ -55,8 +58,7 @@ public class PlayerController : MonoBehaviour
         {
             movement = 0f;
         }
-        
-
+        Debug.Log("isGrounded: " + isGrounded);
         //Se pasa el valor absoluto de la velocidad para pasar solo valores positivos
         anim.SetFloat("speed", Mathf.Abs(movement));
         anim.SetBool("isGrounded", isGrounded);

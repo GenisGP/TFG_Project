@@ -22,6 +22,12 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Si el Game Manager dice que se acabó el juego o está en pausa, salir
+        if (GameManager.isGameOver || GameManager.isGamePaused)
+        {
+            return;
+        }
+
         if (Time.time >= nextAttackTime)
         {
             if (Input.GetMouseButton(0))

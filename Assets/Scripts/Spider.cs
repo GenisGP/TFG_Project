@@ -78,8 +78,6 @@ public class Spider : MonoBehaviour
             anim.SetBool("inCombat", true);
         }
 
-        Debug.Log("in combat: "+inCombat);
-
         if (transform.position == pointB.position)
         {
             nextPos = pointA.position;
