@@ -18,7 +18,7 @@ public class EnemyAttackDetection : MonoBehaviour
         //Si se detecta al jugador
         if (collision.gameObject.CompareTag("Player"))
         {
-            PlayerStatus player = collision.GetComponent<PlayerStatus>();
+            PlayerManager player = collision.GetComponent<PlayerManager>();
             if (!player.isDead)
             {
                 timeToNextAttack = Time.time + timeFirstAttack;
@@ -45,7 +45,7 @@ public class EnemyAttackDetection : MonoBehaviour
         //Si se detecta al jugador
         if (collision.gameObject.CompareTag("Player"))
         {
-            PlayerStatus player = collision.GetComponent<PlayerStatus>();
+            PlayerManager player = collision.GetComponent<PlayerManager>();
             //Si el enemigo está recuperado, puede atacar y el jugador está vivo
             if (!player.isDead)
             {

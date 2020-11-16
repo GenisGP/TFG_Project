@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     private  PlayerCombat playerCombat;
-    private  PlayerStatus playerStatus;
+    private  PlayerManager playerManager;
 
     public float speed;
     public float jumpForce;
@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
         rb2d= GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         playerCombat = GetComponent<PlayerCombat>();
-        playerStatus = GetComponent<PlayerStatus>();
+        playerManager = GetComponent<PlayerManager>();
 
         //Se almacena la escala x original del personaje
         originalXScale = transform.localScale.x;
@@ -66,11 +66,11 @@ public class PlayerController : MonoBehaviour
 
 
         //Si el signo del movimiento del Input y la dirección no coindicen, se da la vuelta al personaje y el personage no está siendo golpeado
-        if (movement * direction < 0f && playerStatus.isRecovered)
+        if (movement * direction < 0f && playerManager.isRecovered)
             FlipCharacterDirection();
 
         //Si se pulsa el botón de saltar, está en el suelo y no está siendo golpeado
-        if (Input.GetButtonDown("Jump") && isGrounded && playerStatus.isRecovered)
+        if (Input.GetButtonDown("Jump") && isGrounded && playerManager.isRecovered)
         {
             startJump = true;
             isJumping = true;
@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
         }
 
-        if (playerStatus.isRecovered)
+        if (playerManager.isRecovered)
         {
             rb2d.velocity = new Vector2(movement * speed, rb2d.velocity.y);
         }

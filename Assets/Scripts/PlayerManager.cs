@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStatus : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
-    public int maxHealth = 100;                 //Vida máxima
-    private int currentHealth;            //Vida actual
+    public int maxHealth = 100;             //Vida máxima
+    public int currentHealth;              //Vida actual
 
     private bool isHit;                     //Si ha sido golpeado
     private float timeToRecover = 0.5f;     //Tiempo que se queda parado al ser golpeado y que tardará para empezar a moverse de nuevo o atacar
     private float timeRecovered = 0f;       //Tiempo en el que se habrá recuperado
     public bool isRecovered = true;         //Si está recuperado de un golpe recibido para poder moverse
 
-    public bool isDead;                    //Si está muerto
+    public bool isDead;                     //Si está muerto
 
     private Animator anim;
 
