@@ -11,6 +11,19 @@ public class PlatformGhost : MonoBehaviour
     private bool playerCollision;       //Si el jugador ha tocado la plataforma
     private bool isFadingIn;            //Si la plataforma está desapareciendo
     public bool startFadeOut;           //Si la plataforma empieza a parecer
+    public bool invisibleAtStart;       //Si tiene que ser invisible al principio
+
+    private void Start()
+    {
+        //Si tiene que ser invisible al principio se pone el alpha a 0
+        if (invisibleAtStart)
+        {
+            foreach (SpriteRenderer renderer in renderers)
+            {
+                renderer.color = new Color(renderer.color.r, renderer.color.g, renderer.color.b, 0);
+            }
+        }
+    }
 
     // Update is called once per frame
     void Update()

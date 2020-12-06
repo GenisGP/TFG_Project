@@ -78,6 +78,8 @@ MonoBehaviour:
   - {fileID: 7757779807780338699}
   - {fileID: 7757779806689940506}
   timeToStartFade: 0.2
+  startFadeOut: 0
+  invisibleAtStart: 0
 --- !u!1 &7757779806090292192
 GameObject:
   m_ObjectHideFlags: 0

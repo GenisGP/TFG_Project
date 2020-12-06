@@ -12,12 +12,10 @@ public class PlaformGhostTriggerFadeOut : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("hola12");
         if (collision.gameObject.CompareTag("Player"))
         {
             platform.startFadeOut = true;
             gameObject.SetActive(false);
-            Debug.Log("hola");
         }
     }
 }

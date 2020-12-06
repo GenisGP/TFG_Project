@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
+    private PlayerController playerController;
+
     public bool isAttacking = false;        //Si está atacando
+    public bool isRecovered = true;         //Si está recuperado de un golpe recibido para poder moverse
+
+    public int attackDmg;                   //Daño de ataque
     public float attackRate = 2f;           //Cadencia de ataque
     private float nextAttackTime = 0f;
 
@@ -17,6 +22,7 @@ public class PlayerCombat : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        playerController = GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -28,16 +34,25 @@ public class PlayerCombat : MonoBehaviour
             return;
         }
 
-        if (Time.time >= nextAttackTime)
+        if (Time.time >= nextAttackTime && playerController.isGrounded)
         {
             if (Input.GetMouseButton(0))
             {
-                Attack();
+                Attack(attackDmg);
                 nextAttackTime = Time.time + 1f / attackRate;
             }
         }
     }
-    void Attack()
+    //Funciones cuando el jugador és atacado y se tambalea que se llaman des de eventos en la animación de "Hurt" para saber cuando se empieza el tambaleo y cuando termina
+    void StartAttack()
+    {
+        isAttacking = true;
+    }
+    void EndAttack()
+    {
+        isAttacking = false;
+    }
+    void Attack(int dmg)
     {
         //Animación de ataque
         anim.SetTrigger("attack");
@@ -47,10 +62,23 @@ public class PlayerCombat : MonoBehaviour
 
         foreach(Collider2D enemy in hitEnemies)
         {
-            enemy.GetComponent<Spider>().TakeDamage(10);
+            Enemy enemyClass = enemy.GetComponent<Enemy>();
+            if (enemy)
+            {
+                enemyClass.TakeDamage(dmg);
+            }
         }
     }
-
+    //Funciones cuando el jugador és atacado y se tambalea que se llaman des de eventos en la animación de "Hurt" para saber cuando se empieza el tambaleo y cuando termina
+    void StartHurt()
+    {
+        isRecovered = false;
+        isAttacking = false;
+    }
+    void EndHurt()
+    {
+        isRecovered = true;
+    }
     private void OnDrawGizmosSelected()
     {
         if(attackPoint == null)
@@ -61,18 +89,4 @@ public class PlayerCombat : MonoBehaviour
         //Dibuja una esfera en el editor con centro el punto de ataque y radio el rango de ataque
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
-
-    //Función del evento en la animación de atacar para saber cuando empieza a atacar y cuando termina
-    void IsAttacking(int a)
-    {
-        if (a == 0)
-        {
-            isAttacking = true;
-        }
-        else if (a == 1)
-        {
-            isAttacking = false;
-        }
-    }
-
 }

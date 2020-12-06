@@ -120,7 +120,7 @@ AnimationClip:
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 1
+    m_LoopTime: 0
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
@@ -135,16 +135,16 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.083333336
-    functionName: IsAttacking
+  - time: 0
+    functionName: StartAttack
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: 58fd57dabcb0fcd49bbbb189a76da3c1,
       type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.9166666
-    functionName: IsAttacking
+  - time: 2
+    functionName: EndAttack
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: 58fd57dabcb0fcd49bbbb189a76da3c1,
       type: 3}

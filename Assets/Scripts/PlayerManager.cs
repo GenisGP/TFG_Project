@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    public int maxHealth = 100;             //Vida máxima
+    public int maxHealth = 100;            //Vida máxima
     public int currentHealth;              //Vida actual
 
-    private bool isHit;                     //Si ha sido golpeado
-    private float timeToRecover = 0.5f;     //Tiempo que se queda parado al ser golpeado y que tardará para empezar a moverse de nuevo o atacar
-    private float timeRecovered = 0f;       //Tiempo en el que se habrá recuperado
-    public bool isRecovered = true;         //Si está recuperado de un golpe recibido para poder moverse
+    public bool isHit;                      //Si ha sido golpeado
+    public bool isImmune;                   //Si está en estado de inmunidad despúes de ser golpeado
+    private float timeInmune = 2f;        //Tiempo que se queda parado al ser golpeado y que tardará para empezar a moverse de nuevo o atacar
+    private float timeEndImmunity = 0f;     //Tiempo en el que dejará de ser inmune
 
     public bool isDead;                     //Si está muerto
 
@@ -18,11 +18,12 @@ public class PlayerManager : MonoBehaviour
 
     private PlayerCombat playerCombat;      //Script de combate para cambiar propiedades como el rango de ataque
     private Rigidbody2D rb;
+    private SpriteRenderer renderer;
 
     public enum Equipments { NoWeapon, BaseballBat};
     public Equipments currentEquipment;
 
-    public List<AnimatorOverrideController> AnimControllers = new List<AnimatorOverrideController>();
+    public List<AnimatorOverrideController> AnimControllers = new List<AnimatorOverrideController>();   
 
     private void Start()
     {
@@ -35,16 +36,15 @@ public class PlayerManager : MonoBehaviour
         anim = GetComponent<Animator>();
         playerCombat = GetComponent<PlayerCombat>();
         rb = GetComponent<Rigidbody2D>();
+        renderer = GetComponent<SpriteRenderer>();
     }
     private void Update()
     {
-        //Tiempo que tarda en recuperarse para poder moverse de nuevo o atacar
-        if (isHit)
+        //Tiempo de inmunidad
+        if (Time.time >= timeEndImmunity && !GameManager.isGameCompleted)
         {
-            if (Time.time >= timeRecovered)
-            {
-                isRecovered = true;
-            }
+            isImmune = false;
+            renderer.color = new Color(renderer.color.r, renderer.color.g, renderer.color.b, 1f);
         }
     }
 
@@ -56,9 +56,13 @@ public class PlayerManager : MonoBehaviour
         {
             case Equipments.NoWeapon:
                 anim.runtimeAnimatorController = AnimControllers[0];
+                playerCombat.attackDmg = 50;
+                playerCombat.attackRange = 0.5f;
                 break;
             case Equipments.BaseballBat:
                 anim.runtimeAnimatorController = AnimControllers[1];
+                playerCombat.attackDmg = 100;
+                playerCombat.attackRange = 1.5f;
                 break;
         }
     }
@@ -73,10 +77,18 @@ public class PlayerManager : MonoBehaviour
         currentHealth -= damage;
 
         isHit = true;
-        isRecovered = false;
-        timeRecovered = Time.time + timeToRecover;
+        //No podrá atacar ni moverse mientras esté aturdido
+        //isRecovered = false;
+        //timeRecovered = Time.time + timeToRecover;
 
-        rb.AddForce(new Vector2(20f, 20f) * -transform.localScale.x);
+        if (currentHealth > 0)
+        {
+            //Será inmune durante un tiempo
+            isImmune = true;
+            renderer.color = new Color(renderer.color.r, renderer.color.g, renderer.color.b, 0.5f);
+            timeEndImmunity = Time.time + timeInmune;
+        }
+
 
         //Si la vida es menor igual a 0, muere
         if (currentHealth <= 0)
@@ -96,5 +108,8 @@ public class PlayerManager : MonoBehaviour
 
         //Animación de morir
         anim.SetTrigger("die");
+
+        //Se llama a la función del player manager que indica el fin del juego y enseña el menú
+        GameManager.PlayerDied();
     }
 }

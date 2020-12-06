@@ -133,7 +133,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300012, guid: 34cdde4958d188e45bdb6bf5c370be71, type: 3}
-  m_Color: {r: 1, g: 0.76030034, b: 0.6084906, a: 0.12156863}
+  m_Color: {r: 1, g: 0.76030034, b: 0.6084906, a: 0.3529412}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 4966916948684455164}
   - component: {fileID: 4966916948684455165}
   m_Layer: 11
-  m_Name: platform-ghost (9)
+  m_Name: platform-ghost-fade-out
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -168,7 +168,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4966916948684455154}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 490.67, y: -1.39, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -186,7 +186,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4966916948684455154}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -223,6 +223,7 @@ MonoBehaviour:
   - {fileID: 4966916948475624846}
   timeToStartFade: 0.2
   startFadeOut: 0
+  invisibleAtStart: 1
 --- !u!1 &4966916948933182068
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +295,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300008, guid: 34cdde4958d188e45bdb6bf5c370be71, type: 3}
-  m_Color: {r: 1, g: 0.76030034, b: 0.6084906, a: 0.12156863}
+  m_Color: {r: 1, g: 0.76030034, b: 0.6084906, a: 0.3529412}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -375,7 +376,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300010, guid: 34cdde4958d188e45bdb6bf5c370be71, type: 3}
-  m_Color: {r: 1, g: 0.76030034, b: 0.6084906, a: 0.12156863}
+  m_Color: {r: 1, g: 0.76030034, b: 0.6084906, a: 0.3529412}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

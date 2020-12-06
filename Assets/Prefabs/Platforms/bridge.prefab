@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2245189115306674482}
   - component: {fileID: 2985861571196867167}
   m_Layer: 0
-  m_Name: ground_3_4
+  m_Name: bridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

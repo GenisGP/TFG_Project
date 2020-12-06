@@ -9,12 +9,14 @@ public class GameManager : MonoBehaviour
     //Los otros scripts acceden a este a tarvés de sus métodos públicos estáticos
     static GameManager current;
 
-    public static bool isGameOver;					    //Si el juego está finalizado
+    public static bool isGameOver;					    //Si el juego está finalizado sin completar
+    public static bool isGameCompleted;                 //Si el juego está completado
     public static bool isGamePaused = false;            //Si el juego está pausado
 
     public static int score = 0;                        //Puntuación
 
     private GameMenuUI menuManager;
+    public LevelManager levelManager;
 
     private void Awake()
     {
@@ -34,16 +36,11 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
         //Si el juego está finalizado, sal
-        if (isGameOver)
+        if (isGameOver || isGameCompleted)
             return;
     }
 
@@ -52,6 +49,9 @@ public class GameManager : MonoBehaviour
         //Si no hay ningún Game Manager presente devuelve falso
         if (current == null)
             return;
+
+        //Se ha completado el juego
+        isGameCompleted = true;
 
         //Llama al método RestartScene() después de un delay
         current.Invoke("ShowVictoryMenu", 2f);
@@ -68,11 +68,25 @@ public class GameManager : MonoBehaviour
         if (current == null)
             return;
 
+        //Se finaliza el juego
+        isGameOver = true;
+
         //Llama al método RestartScene() después de un delay
         current.Invoke("ShowDefeatMenu", 2f);
     }
 
-    //Mostrar menú de derrta
+    //Mostrar menú de victoria
+    void ShowVictoryMenu()
+    {
+        //Se busca el objeto que contiene los menus i se asigna a la variable
+        menuManager = FindObjectOfType<GameMenuUI>();
+
+        //Mostrar el cursor
+        Cursor.visible = true;
+
+        menuManager.victoryMenu.SetActive(true);
+    }
+    //Mostrar menú de derrota
     void ShowDefeatMenu()
     {
         //Se busca el objeto que contiene los menus i se asigna a la variable

@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     private float movement;
 
-    private bool isGrounded;                //Si está en el suelo
+    public bool isGrounded;                 //Si está en el suelo
     private bool isJumping;                 //Si está saltando
     private bool startJump;                 //Para detectar en Input del salto i aplicarlo en el FixedUpdate sin perderlo
 
@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Si el jugador no está atacando se podrá mover
-        if (!playerCombat.isAttacking)
+        if (playerCombat.isRecovered && !playerCombat.isAttacking && !GameManager.isGameCompleted)
         {
             movement = Input.GetAxis("Horizontal");
         }
@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
         {
             movement = 0f;
         }
-        Debug.Log("isGrounded: " + isGrounded);
+
         //Se pasa el valor absoluto de la velocidad para pasar solo valores positivos
         anim.SetFloat("speed", Mathf.Abs(movement));
         anim.SetBool("isGrounded", isGrounded);
@@ -66,20 +66,23 @@ public class PlayerController : MonoBehaviour
 
 
         //Si el signo del movimiento del Input y la dirección no coindicen, se da la vuelta al personaje y el personage no está siendo golpeado
-        if (movement * direction < 0f && playerManager.isRecovered)
+        if (movement * direction < 0f && playerCombat.isRecovered)
             FlipCharacterDirection();
 
         //Si se pulsa el botón de saltar, está en el suelo y no está siendo golpeado
-        if (Input.GetButtonDown("Jump") && isGrounded && playerManager.isRecovered)
+        if (Input.GetButtonDown("Jump") && isGrounded && playerCombat.isRecovered)
         {
             startJump = true;
             isJumping = true;
+            playerCombat.isAttacking = false;
         }
+
+        Debug.Log("is atacking : " + playerCombat.isAttacking);
     }
     private void FixedUpdate()
     {
         //Si el linecast va en la trayectoria desde las posición del jugador a la del groundCheck y choca con la layer Ground
-        if(Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")))
+        if (Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")))
         {
             isGrounded = true;
             isJumping = false;
@@ -89,15 +92,9 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
         }
 
-        if (playerManager.isRecovered)
-        {
-            rb2d.velocity = new Vector2(movement * speed, rb2d.velocity.y);
-        }
-        else
-        {
-            rb2d.velocity = Vector2.zero;
-        }
-   
+        //Movimiento
+        rb2d.velocity = new Vector2(movement * speed, rb2d.velocity.y);
+
         if (startJump)
         {
             rb2d.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
@@ -105,11 +102,6 @@ public class PlayerController : MonoBehaviour
             startJump = false;
             isJumping = true;
         }
-    }
-
-    void GroundMovement()
-    {
-
     }
 
     void FlipCharacterDirection()

@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class BottomLimit : MonoBehaviour
 {
+    public PlayerController player;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Player"))
         {
             GameManager.PlayerDied();
+
+            player.gameObject.SetActive(false);
         }
     }
 }

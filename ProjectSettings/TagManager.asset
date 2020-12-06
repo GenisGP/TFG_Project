@@ -45,3 +45,12 @@ TagManager:
   - name: Player
     uniqueID: 3644258253
     locked: 0
+  - name: Decoration
+    uniqueID: 2447073809
+    locked: 0
+  - name: Coins
+    uniqueID: 2329530463
+    locked: 0
+  - name: Enemy
+    uniqueID: 886628283
+    locked: 0
