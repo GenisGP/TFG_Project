@@ -16,14 +16,17 @@ public class PlayerController : MonoBehaviour
     private bool isJumping;                 //Si está saltando
     private bool startJump;                 //Para detectar en Input del salto i aplicarlo en el FixedUpdate sin perderlo
 
-    [SerializeField]
-    private Transform groundCheck;
+    [SerializeField] private Transform groundCheck;     //Para detectar si está tocando el suelo
+    [SerializeField] private Transform groundCheckL;    //Para detectar si está tocando el suelo en la base izquierda
+    [SerializeField] private Transform groundCheckR;    //Para detectar si está tocando el suelo en la base derecha
 
     float originalXScale;					//Esacala original en el eje X
     int direction = 1;						//Direccióm a la que mira el jugador (1 -> Derecha, -1-> Izquierda)
 
     private Rigidbody2D rb2d;
     public Animator anim;
+
+    public AudioManager audioManager;
 
     // Start is called before the first frame update
     void Start()
@@ -75,14 +78,16 @@ public class PlayerController : MonoBehaviour
             startJump = true;
             isJumping = true;
             playerCombat.isAttacking = false;
-        }
 
-        Debug.Log("is atacking : " + playerCombat.isAttacking);
+            audioManager.PlaySound("Jump");
+        }
     }
     private void FixedUpdate()
     {
         //Si el linecast va en la trayectoria desde las posición del jugador a la del groundCheck y choca con la layer Ground
-        if (Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")))
+        if ((Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"))) ||
+            (Physics2D.Linecast(transform.position, groundCheckL.position, 1 << LayerMask.NameToLayer("Ground"))) ||
+            (Physics2D.Linecast(transform.position, groundCheckR.position, 1 << LayerMask.NameToLayer("Ground"))))
         {
             isGrounded = true;
             isJumping = false;
@@ -117,5 +122,15 @@ public class PlayerController : MonoBehaviour
 
         //Aplica la nueva escala
         transform.localScale = scale;
+    }
+
+    //Sonidos de andar y caer al suelo llamados en eventos de las animcaciones
+    void FootSteep()
+    {
+        audioManager.PlaySound("FootStep");
+    }
+    void JumpLand()
+    {
+        audioManager.PlaySound("JumpLand");
     }
 }

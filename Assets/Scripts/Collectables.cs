@@ -10,6 +10,8 @@ public class Collectables : MonoBehaviour
     public GameMenuUI gameMenuUI;
     public LevelManager levelManager;
 
+    public AudioManager audioManager;
+
     void Update()
     {
         Debug.Log("cauldron: " + levelManager.items.cauldron);
@@ -35,7 +37,9 @@ public class Collectables : MonoBehaviour
                     break;
             }
 
-            //dGameManager.ScoreIncrease(1);
+            //Audio
+            audioManager.PlaySound("Item");
+
             Destroy(gameObject);
         }
     }

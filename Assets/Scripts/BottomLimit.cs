@@ -11,7 +11,8 @@ public class BottomLimit : MonoBehaviour
         {
             GameManager.PlayerDied();
 
-            player.gameObject.SetActive(false);
+            if(player != null)
+                player.gameObject.SetActive(false);
         }
     }
 }

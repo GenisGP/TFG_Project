@@ -24,11 +24,15 @@ public class PlatformFalling : MonoBehaviour
 
     private BoxCollider2D col;
 
+    private AssetAudio assetAudio;
+
     // Start is called before the first frame update
     void Start()
     {
-        nextPos = startPos.position;
         col = GetComponent<BoxCollider2D>();
+        assetAudio = GetComponent<AssetAudio>();
+
+        nextPos = startPos.position;
     }
 
     // Update is called once per frame
@@ -36,13 +40,39 @@ public class PlatformFalling : MonoBehaviour
     {
         if(transform.position == pointA.position)
         {
-            
             StartCoroutine(MoveDown());
+            //Sonido
+            if (assetAudio.GetNameSound() == "MoveUp")
+            {
+                assetAudio.StopSound("MoveUp");
+            }
         }
         if (transform.position == pointB.position)
         {
-            
             StartCoroutine(MoveUp());
+
+            //Sonido
+            if (assetAudio.GetNameSound() != "Impact")
+            {
+                assetAudio.PlaySound("Impact");
+            }
+
+        }
+
+        //Sonido 
+        if (isMovingUp && assetAudio.GetNameSound() != "MoveUp"){
+            assetAudio.PlaySound("MoveUp");
+        }
+
+        //Se pausan los sonidos en al estar en menús
+        if (SceneController.inMenu)
+        {
+            assetAudio.aSource.Pause();
+        }
+        //Se reanudan los sonidos al dejar de estar en menús
+        if (!SceneController.inMenu && !assetAudio.aSource.isPlaying)
+        {
+            assetAudio.aSource.UnPause();
         }
 
         transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
@@ -55,6 +85,7 @@ public class PlatformFalling : MonoBehaviour
         speed = speedUpward;
         isMovingDown = false;
         isMovingUp = true;
+
     }
     IEnumerator MoveDown()
     {

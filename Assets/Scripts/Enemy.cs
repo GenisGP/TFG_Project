@@ -11,8 +11,11 @@ public class Enemy : MonoBehaviour
     public float speed;                     //Velocidad
     public int attackDmg;                   //Daño de ataque
     public Transform startPos;              //Primer punto del recorrido al que se dirige
-    public int maxHealth;                   //Vida máxima
-    private int currentHealth;              //Vida actual
+    public float maxHealth;                   //Vida máxima
+    private float currentHealth;              //Vida actual
+    
+    public ParticleSystem particleDead;     //Partículas de muerte
+    public ParticleSystem particleHit;      //Partículas para cuando es golpeado
 
     private bool isRecovered = true;         //Si está recuperado de un golpe recibido para poder moverse
     private bool isDead;                    //Si está muerto
@@ -24,13 +27,20 @@ public class Enemy : MonoBehaviour
     private Vector3 nextPos;
 
     private Animator anim;
+    private SpriteRenderer spriteRenderer;
+
+    private AssetAudio assetAudio;
 
     // Start is called before the first frame update
     void Start()
     {
         nextPos = startPos.position;
         currentHealth = maxHealth;
+
         anim = GetComponent<Animator>();
+        assetAudio = GetComponent<AssetAudio>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
         //Se coge el primer hijo que es el controlador de la parte superior
         topEnemy = this.gameObject.transform.GetChild(0);
 
@@ -64,11 +74,27 @@ public class Enemy : MonoBehaviour
 
             //Animación de moverse
             anim.SetBool("isMoving", true);
+
+            if(assetAudio.GetNameSound() != "Walking")
+            {
+                assetAudio.PlaySound("Walking");
+            }
         }
 
         if (transform.position == pointB.position)
         {
             nextPos = pointA.position;
+        }
+
+        //Se pausan los sonidos en al estar en menús
+        if (SceneController.inMenu)
+        {
+            assetAudio.aSource.Pause();
+        }
+        //Se reanudan los sonidos al dejar de estar en menús
+        if (!SceneController.inMenu && !assetAudio.aSource.isPlaying)
+        {
+            assetAudio.aSource.UnPause();
         }
     }
 
@@ -81,8 +107,12 @@ public class Enemy : MonoBehaviour
     void StartAttack()
     {
         isAttacking = true;
+
+        //Sonido
+        assetAudio.PlaySound("Attack");
+
         //Se gira en dirección al personaje si es necesario para atacar
-        if(((player.transform.position.x > transform.position.x) && (Mathf.Sign(transform.localScale.x) == 1)) || ((player.transform.position.x < transform.position.x) && (Mathf.Sign(transform.localScale.x) == -1)))
+        if (((player.transform.position.x > transform.position.x) && (Mathf.Sign(transform.localScale.x) == 1)) || ((player.transform.position.x < transform.position.x) && (Mathf.Sign(transform.localScale.x) == -1)))
         {
             FlipCharacterDirection();
         }
@@ -109,6 +139,9 @@ public class Enemy : MonoBehaviour
                 //Animación de atacar
                 anim.SetTrigger("attack");
                 anim.SetBool("isMoving", false);
+
+
+
                 //Se daña al jugador
                 player.TakeDamage(dmg);
             }
@@ -140,8 +173,16 @@ public class Enemy : MonoBehaviour
         isAttacking = false;
         isRecovered = false;
 
+        //Partículas
+        particleHit.Play();
+
+        //Se cambia el color según la vida
+        spriteRenderer.color = new Color(255f, (maxHealth + currentHealth) / 255f, (maxHealth + currentHealth) / 255f);
+
+        //spriteRenderer.color = new Color(127.5f,50,50);
+        Debug.Log(spriteRenderer.color);
         //Si la vida es menor igual a 0, muere
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
             Die();
         }
@@ -161,8 +202,17 @@ public class Enemy : MonoBehaviour
         topEnemy.GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = false;
 
+        //Sonido
+        assetAudio.PlaySound("Die");
+
         //Animación de morir
         anim.SetTrigger("die");
+
+        //Partículas
+        particleDead.Play();
+
+        //Se cambia el color según la vida. Se pone en la función para cuando muere porque se le salta encima y se llama esta función directamente
+        spriteRenderer.color = new Color(255f, 100f / 255f, 100f / 255f);
     }
 
     //Cuando el enemigo desaparece en la animación de muerte se llama con un evento a la función de desactivar el objeto

@@ -18,6 +18,9 @@ public class PlayerCombat : MonoBehaviour
     public LayerMask enemyLayers;           //Layer de los enemigos para detectarlos al golpearlos
 
     private Animator anim;
+
+    public AudioManager audioManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,6 +70,16 @@ public class PlayerCombat : MonoBehaviour
             {
                 enemyClass.TakeDamage(dmg);
             }
+        }
+
+        //Si se golpe a un enemigo sonará un golpe, sinó ataque al aire
+        if(hitEnemies.Length > 0)
+        {
+            audioManager.PlaySound("Hit");
+        }
+        else
+        {
+            audioManager.PlaySound("Attack");
         }
     }
     //Funciones cuando el jugador és atacado y se tambalea que se llaman des de eventos en la animación de "Hurt" para saber cuando se empieza el tambaleo y cuando termina

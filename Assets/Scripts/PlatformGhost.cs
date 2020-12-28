@@ -13,8 +13,12 @@ public class PlatformGhost : MonoBehaviour
     public bool startFadeOut;           //Si la plataforma empieza a parecer
     public bool invisibleAtStart;       //Si tiene que ser invisible al principio
 
+    private AssetAudio assetAudio;
+
     private void Start()
     {
+        assetAudio = GetComponent<AssetAudio>();
+
         //Si tiene que ser invisible al principio se pone el alpha a 0
         if (invisibleAtStart)
         {
@@ -34,7 +38,19 @@ public class PlatformGhost : MonoBehaviour
         }
         if (startFadeOut && !isFadingIn)
         {
+            //Sonido
+            if (assetAudio.GetNameSound() != "Appear")
+            {
+                assetAudio.PlaySound("Appear");
+            }
+
             StartCoroutine(FadeOut(timeToStartFade));
+        }
+
+        //Sonido
+        if (isFadingIn && (assetAudio.GetNameSound() != "Disappear"))
+        {
+            assetAudio.PlaySound("Disappear");
         }
     }
 
@@ -78,8 +94,8 @@ public class PlatformGhost : MonoBehaviour
             float alpha = Mathf.Lerp(renderer.color.a, 1f, 2f * Time.deltaTime);
             renderer.color = new Color(renderer.color.r, renderer.color.g, renderer.color.b, alpha);
 
-            //Cuando casi no se vea se elimina la plataforma
-            if (alpha > 0.8f)
+            //Cuando se vea la plataforma se activa el collider
+            if (alpha > 0.05f)
             {
                 gameObject.GetComponent<BoxCollider2D>().enabled = true;
             }

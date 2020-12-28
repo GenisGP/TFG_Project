@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-   
-
     public static bool inGame;                          //Si se está en la pantalla de juego
     public static bool inMenu;                          //Si se está navegando por menús
 

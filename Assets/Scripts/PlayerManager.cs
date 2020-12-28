@@ -19,6 +19,8 @@ public class PlayerManager : MonoBehaviour
     private PlayerCombat playerCombat;      //Script de combate para cambiar propiedades como el rango de ataque
     private Rigidbody2D rb;
     private SpriteRenderer renderer;
+    
+    public ParticleSystem blood;            //Partículas de sangre
 
     public enum Equipments { NoWeapon, BaseballBat};
     public Equipments currentEquipment;
@@ -44,7 +46,6 @@ public class PlayerManager : MonoBehaviour
         if (Time.time >= timeEndImmunity && !GameManager.isGameCompleted)
         {
             isImmune = false;
-            renderer.color = new Color(renderer.color.r, renderer.color.g, renderer.color.b, 1f);
         }
     }
 
@@ -77,15 +78,17 @@ public class PlayerManager : MonoBehaviour
         currentHealth -= damage;
 
         isHit = true;
-        //No podrá atacar ni moverse mientras esté aturdido
-        //isRecovered = false;
-        //timeRecovered = Time.time + timeToRecover;
+
+        //Partículas
+        blood.Play();
 
         if (currentHealth > 0)
         {
             //Será inmune durante un tiempo
             isImmune = true;
-            renderer.color = new Color(renderer.color.r, renderer.color.g, renderer.color.b, 0.5f);
+            //Parpadea el personaje
+            StartCoroutine(Flash());
+
             timeEndImmunity = Time.time + timeInmune;
         }
 
@@ -111,5 +114,17 @@ public class PlayerManager : MonoBehaviour
 
         //Se llama a la función del player manager que indica el fin del juego y enseña el menú
         GameManager.PlayerDied();
+    }
+
+    //Para parpadear cuando se recibe daño
+    IEnumerator Flash()
+    {
+        for (int n = 0; n < 8; n++)
+        {
+            renderer.color = new Color(renderer.color.r, renderer.color.g, renderer.color.b, 0f);
+            yield return new WaitForSeconds(0.1f);
+            renderer.color = new Color(renderer.color.r, renderer.color.g, renderer.color.b, 1f);
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 }

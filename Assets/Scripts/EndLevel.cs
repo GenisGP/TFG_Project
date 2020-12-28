@@ -7,12 +7,11 @@ public class EndLevel : MonoBehaviour
     public SpriteRenderer player;
     public ParticleSystem particles;
 
+    public AudioSource sourcePortal;
+    public AudioSource sourceHit;
+    private bool sourceHitIsPaused = false;
+
     private bool isFadingIn;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -22,6 +21,28 @@ public class EndLevel : MonoBehaviour
             Debug.Log("is fadding: "+ player.color.a);
            // FadeIn();
         }
+
+        //Se pausan los sonidos en al estar en menús
+        if (SceneController.inMenu)
+        {
+            sourcePortal.Pause();
+            sourceHit.Pause();
+            if (sourceHit.isPlaying)
+            {
+                sourceHitIsPaused = true;
+            }
+        }
+        //Se reanudan los sonidos al dejar de estar en menús
+        if (!SceneController.inMenu && !sourcePortal.isPlaying)
+        {
+            sourcePortal.UnPause();
+            if (sourceHitIsPaused)
+            {
+                sourceHit.UnPause();
+            }
+        }
+
+        Debug.Log("audio: "+sourcePortal.isPlaying);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,6 +51,9 @@ public class EndLevel : MonoBehaviour
         {
             //Se activa el sistema de partículas
             particles.Play();
+
+            //Sonido
+            sourceHit.Play();
 
             //El jugador se desvanece
             //isFadingIn = true;

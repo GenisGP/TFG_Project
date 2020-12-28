@@ -49,7 +49,8 @@ public class PlatformMoving : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             //El jugador deja a ser hijo de la plataforma
-            collision.transform.SetParent(null);
+            if (collision.gameObject != null)
+                collision.transform.SetParent(null);
         }
     }
 }

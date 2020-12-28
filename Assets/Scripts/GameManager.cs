@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
     public static int score = 0;                        //Puntuación
 
     private GameMenuUI menuManager;
-    public LevelManager levelManager;
 
     private void Awake()
     {
@@ -80,11 +79,19 @@ public class GameManager : MonoBehaviour
     {
         //Se busca el objeto que contiene los menus i se asigna a la variable
         menuManager = FindObjectOfType<GameMenuUI>();
+       
+        //Se está en menús
+        SceneController.inMenu = true;
 
         //Mostrar el cursor
         Cursor.visible = true;
 
         menuManager.victoryMenu.SetActive(true);
+
+        //Sonido
+        AudioManager manager = FindObjectOfType<AudioManager>();
+        manager.StopAllSounds();
+        manager.PlaySound("GameComplete");
     }
     //Mostrar menú de derrota
     void ShowDefeatMenu()
@@ -92,10 +99,18 @@ public class GameManager : MonoBehaviour
         //Se busca el objeto que contiene los menus i se asigna a la variable
         menuManager = FindObjectOfType<GameMenuUI>();
 
+        //Se está en menús
+        SceneController.inMenu = true;
+
         //Mostrar el cursor
         Cursor.visible = true;
 
         menuManager.defeatMenu.SetActive(true);
+
+        //Sonido
+        AudioManager manager = FindObjectOfType<AudioManager>();
+        manager.StopAllSounds();
+        manager.PlaySound("GameOver");
     }
 
 
