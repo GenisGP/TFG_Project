@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
         //Si el Game Manager dice que se acabó el juego o está en pausa, salir
         if (GameManager.isGameOver || GameManager.isGamePaused)
         {
+            movement = 0f;
             return;
         }
 

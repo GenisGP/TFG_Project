@@ -594,7 +594,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -602,8 +602,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 29.3
-  MaxDistance: 40
+  MinDistance: 7.3
+  MaxDistance: 21.12
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -705,6 +705,7 @@ MonoBehaviour:
     mixerGroup: {fileID: -1048880816459113523, guid: fb9666293ede2d8479bc92ef0bf716b0,
       type: 2}
     source: {fileID: 0}
+  aSource: {fileID: 0}
 --- !u!1 &5290482223475761220
 GameObject:
   m_ObjectHideFlags: 0
@@ -1043,7 +1044,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8342247613608648632}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -5.35, z: 0}
+  m_LocalPosition: {x: 0, y: -6.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8342247614005644184}

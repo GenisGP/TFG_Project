@@ -96,6 +96,12 @@ public class Enemy : MonoBehaviour
         {
             assetAudio.aSource.UnPause();
         }
+
+        if (player.isDead)
+        {
+            GetComponent<BoxCollider2D>().enabled = false;
+            topEnemy.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        }
     }
 
     private void OnDrawGizmos()

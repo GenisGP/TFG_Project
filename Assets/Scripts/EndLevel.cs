@@ -41,8 +41,6 @@ public class EndLevel : MonoBehaviour
                 sourceHit.UnPause();
             }
         }
-
-        Debug.Log("audio: "+sourcePortal.isPlaying);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

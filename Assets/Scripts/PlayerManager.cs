@@ -86,8 +86,12 @@ public class PlayerManager : MonoBehaviour
         {
             //Será inmune durante un tiempo
             isImmune = true;
+
             //Parpadea el personaje
             StartCoroutine(Flash());
+
+            //Sonido
+            playerCombat.audioManager.PlaySound("Damage");
 
             timeEndImmunity = Time.time + timeInmune;
         }
@@ -112,6 +116,9 @@ public class PlayerManager : MonoBehaviour
         //Animación de morir
         anim.SetTrigger("die");
 
+        //Sonido
+        playerCombat.audioManager.PlaySound("Die");
+        
         //Se llama a la función del player manager que indica el fin del juego y enseña el menú
         GameManager.PlayerDied();
     }
